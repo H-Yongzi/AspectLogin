@@ -1,0 +1,3 @@
+rootProject.name = "AspectLogin"
+include ':app'
+include ':login'
