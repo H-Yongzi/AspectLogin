@@ -8,8 +8,9 @@ AspectJ实现登录拦截功能
   ```
 2. 初始化：
  ```
-       LoginManager.getInstance().init(application, object : ILogin {
-            override fun login(context: Context, loginMode: Int) {
+       LoginManager.getInstance().init(application, new ILogin() {
+            @Override
+            public void login(Context context, int loginMode) {
                 // 根据loginMode执行对应的操作
                 if (loginMode == 0) {
                     // 跳转到登录页面
@@ -17,14 +18,16 @@ AspectJ实现登录拦截功能
                     // 跳转其他页面
                 }
             }
-            override fun isLoggedIn(): Boolean {
+            @Override 
+            public boolean isLoggedIn() {
                 // 判断当前是否登录，判断逻辑根据项目需求自定义
-                return false
+                return false;
             }
-            override fun clearLoginStatus() {
+            @Override 
+            public void clearLoginStatus() {
                 // 清空登录信息，比如token、缓存的登录信息等等
             }
-        })
+        });
 ```
 3. 登录校验：
 ```
