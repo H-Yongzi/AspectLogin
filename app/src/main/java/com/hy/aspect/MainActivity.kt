@@ -28,10 +28,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun initLogin() {
         LoginManager.getInstance().init(application, object : ILogin {
-            override fun login(context: Context, loginStatus: Int) {
-                if (loginStatus == 0) {
+            override fun login(context: Context, loginMode: Int) {
+                // 根据loginMode执行对应的操作
+                if (loginMode == 0) {
                     // 跳转到登录页面
-                    Toast.makeText(context, "跳转到登录页面", Toast.LENGTH_LONG).show()
+                } else {
+                    // 跳转其他页面
                 }
             }
 
@@ -41,8 +43,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun clearLoginStatus() {
-                // 清空登录信息
-                Toast.makeText(application, "清空登录信息", Toast.LENGTH_LONG).show()
+                // 清空登录信息，比如token、缓存的登录信息等等
             }
         })
     }

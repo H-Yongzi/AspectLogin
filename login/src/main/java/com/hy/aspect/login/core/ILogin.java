@@ -11,9 +11,9 @@ public interface ILogin {
      * 执行登录操作
      *
      * @param context          用于页面跳转等
-     * @param loginExecuteMode 登录执行方式(默认为0，跳转到登录页面)
+     * @param loginMode        登录执行方式(默认为0，跳转到登录页面)
      */
-    void login(Context context, int loginExecuteMode);
+    void login(Context context, int loginMode);
 
     /**
      * 是否已登录
