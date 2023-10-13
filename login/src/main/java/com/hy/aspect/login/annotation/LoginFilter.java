@@ -17,7 +17,7 @@ public @interface LoginFilter {
 
     /**
      * 定义登录执行方式 0 默认跳转登录页
-     * Date: 2023-10-14 07:33
+     * Date: 2022-4-27 17:10
      * Author: huangyong
      *
      * @return int
