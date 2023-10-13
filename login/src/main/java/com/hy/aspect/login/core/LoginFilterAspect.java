@@ -14,11 +14,18 @@ import org.aspectj.lang.reflect.MethodSignature;
 
 /**
  * 登录拦截
+ * Date: 2022-4-27
+ * Company: 铸远集团
+ * Author: huangyong
  */
 @Aspect
 public class LoginFilterAspect {
 
-    // 切入点为所有被LoginFilter注释的方法（第一个*表示返回类型为任意，第二个*表示方法名为任意，..表示方法入参任意）
+    /**
+     * 切入点为所有被LoginFilter注释的方法（第一个*表示返回类型为任意，第二个*表示方法名为任意，..表示方法入参任意）
+     * Date: 2022-4-27 17:36
+     * Author: huangyong
+     */
     @Pointcut("execution(@com.hy.aspect.login.annotation.LoginFilter * *(..))")
     public void loginFilter() {
     }
@@ -46,6 +53,7 @@ public class LoginFilterAspect {
         }
 
         Context context = LoginManager.getInstance().getContext();
+        // isLoggedIn的判断逻辑在初始化时传入的接口实现类中自定义
         if (iLogin.isLoggedIn()) {
             try {
                 joinPoint.proceed();
